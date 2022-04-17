@@ -50,6 +50,13 @@ if (config.env === 'production') {
   app.use('/v1/auth', authLimiter);
 }
 
+// Home route
+app.use('/', (req, res) => {
+  res.status(httpStatus.OK).json({
+    message: 'Mr.Online says hello from the server!',
+  });
+});
+
 // v1 api routes
 app.use('/v1', routes);
 
