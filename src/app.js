@@ -50,19 +50,19 @@ if (config.env === 'production') {
   app.use('/v1/auth', authLimiter);
 }
 
-// Home route
-app.use('/', (req, res) => {
-  res.status(httpStatus.OK).json({
-    message: 'Mr.Online says hello from the server!',
-  });
-});
-
 // v1 api routes
 app.use('/v1', routes);
 
 // send back a 404 error for any unknown api request
 app.use((req, res, next) => {
   next(new ApiError(httpStatus.NOT_FOUND, 'Not found'));
+});
+
+// Home route
+app.use('/', (req, res) => {
+  res.status(httpStatus.OK).json({
+    message: 'Mr.Online says hello from the server!',
+  });
 });
 
 // convert error to ApiError, if needed

@@ -18,7 +18,7 @@ router
   .delete(auth('manageAdsConfigs'), validate(adsConfigValidation.deleteAdsConfig), adsConfigController.deleteAdsConfig);
 
 router
-  .route('/package/:adsConfigId')
+  .route('/package')
   .get(
     auth('getAdsConfigs'),
     validate(adsConfigValidation.getAdsConfigFromPackageName),
