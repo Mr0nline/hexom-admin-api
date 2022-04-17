@@ -12,18 +12,18 @@ router
   .get(auth('getAdsConfigs'), validate(adsConfigValidation.getAdsConfigs), adsConfigController.getAdsConfigs);
 
 router
-  .route('/:adsConfigId')
-  .get(auth('getAdsConfigs'), validate(adsConfigValidation.getAdsConfig), adsConfigController.getAdsConfig)
-  .put(auth('manageAdsConfigs'), validate(adsConfigValidation.updateAdsConfig), adsConfigController.updateAdsConfig)
-  .delete(auth('manageAdsConfigs'), validate(adsConfigValidation.deleteAdsConfig), adsConfigController.deleteAdsConfig);
-
-router
   .route('/package')
   .get(
     auth('getAdsConfigs'),
     validate(adsConfigValidation.getAdsConfigFromPackageName),
     adsConfigController.getAdsConfigFromPackageName
   );
+
+router
+  .route('/:adsConfigId')
+  .get(auth('getAdsConfigs'), validate(adsConfigValidation.getAdsConfig), adsConfigController.getAdsConfig)
+  .put(auth('manageAdsConfigs'), validate(adsConfigValidation.updateAdsConfig), adsConfigController.updateAdsConfig)
+  .delete(auth('manageAdsConfigs'), validate(adsConfigValidation.deleteAdsConfig), adsConfigController.deleteAdsConfig);
 
 module.exports = router;
 

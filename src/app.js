@@ -53,16 +53,16 @@ if (config.env === 'production') {
 // v1 api routes
 app.use('/v1', routes);
 
+// Create necessary routes
+app.get('/', (req, res) => {
+  res.status(httpStatus.OK).json({
+    message: 'Mr.Online says hello from the API',
+  });
+});
+
 // send back a 404 error for any unknown api request
 app.use((req, res, next) => {
   next(new ApiError(httpStatus.NOT_FOUND, 'Not found'));
-});
-
-// Home route
-app.use('/', (req, res) => {
-  res.status(httpStatus.OK).json({
-    message: 'Mr.Online says hello from the server!',
-  });
 });
 
 // convert error to ApiError, if needed
