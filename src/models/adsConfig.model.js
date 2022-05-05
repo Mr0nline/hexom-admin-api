@@ -30,15 +30,19 @@ const adsConfigSchema = mongoose.Schema(
     },
     description: {
       type: String,
+      default: '',
     },
     link: {
       type: String,
+      default: '',
     },
     buttonName: {
       type: String,
+      default: '',
     },
     buttonSkip: {
       type: String,
+      default: '',
     },
     AdsOnOff: {
       type: Boolean,
@@ -51,12 +55,15 @@ const adsConfigSchema = mongoose.Schema(
     // Admob config
     GoogleInterAds: {
       type: String,
+      default: '',
     },
     GoogleNativeAds: {
       type: String,
+      default: '',
     },
     GoogleAppOpenAds: {
       type: String,
+      default: '',
     },
     GoogleMiniNativeOnOff: {
       type: Boolean,
@@ -92,10 +99,12 @@ const adsConfigSchema = mongoose.Schema(
     },
     GoogleNativeText: {
       type: String,
+      default: '',
     },
     // Qureka config
     QurekaLink: {
       type: String,
+      default: '',
     },
     QurekaOnOff: {
       type: Boolean,
@@ -136,9 +145,11 @@ const adsConfigSchema = mongoose.Schema(
     },
     UnityInterId: {
       type: String,
+      default: '',
     },
     UnityNative: {
       type: String,
+      default: '',
     },
     // General config
     HomeNativeBackgroundColorOnOff: {
@@ -147,6 +158,7 @@ const adsConfigSchema = mongoose.Schema(
     },
     NativeBackgroundColor: {
       type: String,
+      default: '#252525',
     },
     AllPagesNativeBackgroundOnOff: {
       type: Boolean,
@@ -158,6 +170,7 @@ const adsConfigSchema = mongoose.Schema(
     },
     PolicyLink: {
       type: String,
+      default: '',
     },
   },
   {
