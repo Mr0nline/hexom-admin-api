@@ -1,11 +1,14 @@
 const express = require('express');
 const helmet = require('helmet');
 const xss = require('xss-clean');
+const moesif = require('moesif-nodejs');
 const mongoSanitize = require('express-mongo-sanitize');
 const compression = require('compression');
 const cors = require('cors');
 const passport = require('passport');
 const httpStatus = require('http-status');
+const Bugsnag = require('@bugsnag/js');
+const BugsnagPluginExpress = require('@bugsnag/plugin-express');
 const config = require('./config/config');
 const morgan = require('./config/morgan');
 const { jwtStrategy } = require('./config/passport');
@@ -14,12 +17,27 @@ const routes = require('./routes/v1');
 const { errorConverter, errorHandler } = require('./middlewares/error');
 const ApiError = require('./utils/ApiError');
 
+Bugsnag.start({
+  apiKey: process.env.BUGSNAG_API_KEY,
+  plugins: [BugsnagPluginExpress],
+});
+
+const moesifMiddleware = moesif({
+  applicationId: process.env.MOESIF_APPLICATION_ID,
+});
+
 const app = express();
 
 if (config.env !== 'test') {
   app.use(morgan.successHandler);
   app.use(morgan.errorHandler);
 }
+
+const bugsnagMiddleware = Bugsnag.getPlugin('express');
+
+// BugSnag middleware
+app.use(bugsnagMiddleware.requestHandler);
+app.use(moesifMiddleware);
 
 // set security HTTP headers
 app.use(helmet());
@@ -64,6 +82,9 @@ app.get('/', (req, res) => {
 app.use((req, res, next) => {
   next(new ApiError(httpStatus.NOT_FOUND, 'Not found'));
 });
+
+// BugSnag error handler
+app.use(bugsnagMiddleware.errorHandler);
 
 // convert error to ApiError, if needed
 app.use(errorConverter);
