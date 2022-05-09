@@ -44,131 +44,118 @@ const adsConfigSchema = mongoose.Schema(
       type: String,
       default: '',
     },
-    AdsOnOff: {
+    AllAdsOn: {
       type: Boolean,
       default: true,
     },
-    FullScreenOnOff: {
+    // Google Admob Config
+    gAdOn: {
       type: Boolean,
-      default: true,
+      default: false,
     },
-    // Admob config
-    GoogleInterAds: {
-      type: String,
-      default: '',
-    },
-    GoogleNativeAds: {
-      type: String,
-      default: '',
-    },
-    GoogleAppOpenAds: {
-      type: String,
-      default: '',
-    },
-    GoogleMiniNativeOnOff: {
+    gInterOn: {
       type: Boolean,
-      default: true,
+      default: false,
     },
-    GoogleLargeNativeOnOff: {
+    gMinNativeOn: {
       type: Boolean,
-      default: true,
+      default: false,
     },
-    GoogleIntervalCount: {
+    gLargeNativeOn: {
+      type: Boolean,
+      default: false,
+    },
+    gAppOpenOn: {
+      type: Boolean,
+      default: false,
+    },
+    gBackInterOn: {
+      type: Boolean,
+      default: false,
+    },
+    gExitInterOn: {
+      type: Boolean,
+      default: false,
+    },
+    gSplashOpenAdOn: {
+      type: Boolean,
+      default: false,
+    },
+    gIntervalCount: {
       type: Number,
       default: 3,
     },
-    GoogleBackInterOnOff: {
-      type: Boolean,
-      default: true,
-    },
-    GoogleBackInterIntervalCount: {
+    gBackIntervalCount: {
       type: Number,
       default: 2,
     },
-    GoogleExitSplashInterOnOff: {
-      type: Boolean,
-      default: true,
-    },
-    GoogleSplashOpenAdsOnOff: {
-      type: Boolean,
-      default: true,
-    },
-    GoogleNativeTextOnOff: {
-      type: Boolean,
-      default: true,
-    },
-    GoogleNativeText: {
+    gInterId: {
       type: String,
       default: '',
     },
-    // Qureka config
-    QurekaLink: {
+    gNativeId: {
       type: String,
       default: '',
     },
-    QurekaOnOff: {
-      type: Boolean,
-      default: true,
-    },
-    QurekaAppOpenOnOff: {
-      type: Boolean,
-      default: true,
-    },
-    QurekaInterOnOff: {
-      type: Boolean,
-      default: true,
-    },
-    QurekaMiniNativeOnOff: {
-      type: Boolean,
-      default: true,
-    },
-    QurekaLargeNativeOnOff: {
-      type: Boolean,
-      default: true,
-    },
-    QurekaInterCloseOnOff: {
-      type: Boolean,
-      default: true,
-    },
-    QurekaBackInterOnOff: {
-      type: Boolean,
-      default: true,
-    },
-    // Unity Ads
-    UnityOnOff: {
-      type: Boolean,
-      default: true,
-    },
-    UnityFullScreenIdOnOff: {
-      type: Boolean,
-      default: true,
-    },
-    UnityInterId: {
+    gAppOpenId: {
       type: String,
       default: '',
     },
-    UnityNative: {
+    // Qureka Config
+    qAdOn: {
+      type: Boolean,
+      default: false,
+    },
+    qLinkId: {
       type: String,
       default: '',
     },
-    // General config
-    HomeNativeBackgroundColorOnOff: {
-      type: Boolean,
-      default: true,
-    },
-    NativeBackgroundColor: {
+    qPrivacyPolicy: {
       type: String,
-      default: '#252525',
+      default: '',
     },
-    AllPagesNativeBackgroundOnOff: {
+    qOpenAdOn: {
       type: Boolean,
       default: true,
     },
-    AllPagesNativeBackgroundCount: {
-      type: Number,
-      default: 4,
+    qInterOn: {
+      type: Boolean,
+      default: true,
     },
-    PolicyLink: {
+    qMinNativeOn: {
+      type: Boolean,
+      default: true,
+    },
+    qLargeNativeOn: {
+      type: Boolean,
+      default: true,
+    },
+    qBackInterOn: {
+      type: Boolean,
+      default: true,
+    },
+    // Unity config
+    uAdOn: {
+      type: Boolean,
+      default: true,
+    },
+    uInterOn: {
+      type: Boolean,
+      default: true,
+    },
+    uBannerOn: {
+      type: Boolean,
+      default: true,
+    },
+    uInterId: {
+      type: String,
+      default: '',
+    },
+    uBannerId: {
+      type: String,
+      default: '',
+    },
+    uGameId: {
       type: String,
       default: '',
     },
