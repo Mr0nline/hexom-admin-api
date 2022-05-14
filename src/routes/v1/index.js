@@ -1,5 +1,6 @@
 const express = require('express');
 const adsConfigRoute = require('./adsConfig.route');
+const appAdsRoute = require('./appAds.route');
 const authRoute = require('./auth.route');
 const userRoute = require('./user.route');
 const docsRoute = require('./docs.route');
@@ -19,6 +20,10 @@ const defaultRoutes = [
   {
     path: '/ads-config',
     route: adsConfigRoute,
+  },
+  {
+    path: '/app-ads',
+    route: appAdsRoute,
   },
 ];
 
